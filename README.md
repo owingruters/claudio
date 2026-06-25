@@ -118,7 +118,7 @@ For example:
 
 When `claudio` detects an `op://` value, it resolves it via the [1Password CLI](https://www.1password.dev/cli/get-started) (`op read`) before passing the token to Claude Code. Everyone at iO has access to 1Password, so this is the preferred setup.
 
-To get started with the 1Password CLI: https://www.1password.dev/cli/get-started
+You do need to setup 1Password for this, see: https://www.1password.dev/cli/get-started
 
 ### Config Schema
 
