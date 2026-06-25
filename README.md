@@ -12,11 +12,16 @@ Claude Code's `env` config uses a "highest-precedence layer wins" approach — y
 
 ## Prerequisites
 
-- Mac/Linux: 
--- [homebrew](https://brew.sh/) package manager
--- terminal 1x: brew tap iodigital-com/io (to tap the iO homebrew repo)
--- terminal 1x: brew trust --tap iodigital-com/io (to trust the iO homebrew repo)
-- Windows: [uv](https://docs.astral.sh/uv/) package manager 
+- Mac/Linux: [homebrew](https://brew.sh/) package manager (run once):
+  ```sh
+  brew tap iodigital-com/io
+  ```
+  ```sh
+  brew trust --tap iodigital-com/io
+  ```
+
+  (or) [uv](https://docs.astral.sh/uv/) package manager
+- Windows: [uv](https://docs.astral.sh/uv/) package manager
 
 ## Installation
 ### Mac/Linux
@@ -120,8 +125,15 @@ Storing API keys as plaintext in config files is a supply chain risk — if a ma
 
 For example:
 
+> Different 1Password item types require different identifiers. Login items uses password, API keys uses reference/referentie
+
 ```json
 "ANTHROPIC_AUTH_TOKEN": "op://Employee/Bonzai API key Pluxee/password"
+```
+
+Or for API keys
+```json
+"ANTHROPIC_AUTH_TOKEN": "op://Employee/Bonzai API key Pluxee/referentie"
 ```
 
 When `claudio` detects an `op://` value, it resolves it via the [1Password CLI](https://www.1password.dev/cli/get-started) (`op read`) before passing the token to Claude Code. Everyone at iO has access to 1Password, so this is the preferred setup.
